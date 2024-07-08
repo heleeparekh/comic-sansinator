@@ -1,9 +1,9 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean and modern font */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     margin: 0;
     padding: 10px;
-    background-color: #ffffff; /* White background */
-    color: #333333; /* Dark grey text */
+    background-color: #ffffff; 
+    color: #333333; 
 }
 
 button {
@@ -14,28 +14,37 @@ button {
     min-width: 150px;
     padding: 8px;
     margin-top: 5px;
-    background-color: #e6e6e6; /* Subtle grey */
-    color: #333333; /* Dark grey text to maintain contrast */
-    border: 1px solid #cccccc; /* Slightly darker border for definition */
+    background-color: #e6e6e6; 
+    color: #333333; 
+    border: 1px solid #cccccc; 
     border-radius: 5px;
     cursor: pointer;
     font-size: 15px;
     white-space: nowrap;
     gap: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+    transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
 button:hover {
-    background-color: #cccccc; /* Slightly darker grey on hover */
-    color: #262626; /* Darker text on hover */
+    background-color: #cccccc; 
+    color: #262626; 
+}
+
+#restore {
+    background-color: #7e7e7e; 
+    color: white; 
+}
+
+#restore:hover {
+    background-color: #ff7458;
 }
 
 button.active {
-    background-color: #dddddd; /* Very light grey for active state */
-    color: #1a1a1a; /* Almost black for text in active state */
+    background-color: #dddddd; 
+    color: #1a1a1a; 
 }
 
 i {
     font-size: 15px;
-    margin-right: 5px; /* Space between icon and text */
+    margin-right: 5px;
 }

@@ -16,14 +16,6 @@ function changeFontFamily(fontFamily) {
     document.body.style.fontFamily = fontFamily;
 }
 
-addFontChangeListener('comic-neue', "'Comic Neue', cursive");
-addFontChangeListener('lobster', "'Lobster', cursive");
-addFontChangeListener('kode-mono', "'Kode Mono', monospace");
-addFontChangeListener('playwrite-fr-moderne', "'Playwrite FR Moderne', cursive");
-addFontChangeListener('source-code-pro', "'Source Code Pro', monospace");
-addFontChangeListener('caveat', "'Caveat', cursive");
-addFontChangeListener('danfo', "'Danfo', serif");
-
 document.getElementById('restore').addEventListener('click', () => {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         if (tabs.length > 0) {
@@ -52,15 +44,6 @@ document.querySelectorAll('button').forEach(button => {
     });
 });
 
-// function changeFont(fontName) {
-//     const elements = document.querySelectorAll('body, body *');
-//     elements.forEach(el => {
-//         if (window.getComputedStyle(el).display === 'inline') {
-//             el.style.fontFamily = `${fontName}, sans-serif !important`;
-//         }
-//     });
-// }
-
 function changeFont(fontName) {
     const elements = document.querySelectorAll('body, body *');
     elements.forEach(el => {
@@ -70,10 +53,10 @@ function changeFont(fontName) {
     });
 }
 
-
-
-// function setFontFamily(fontName) {
-//     document.querySelectorAll('*').forEach(function(node) {
-//         node.style.fontFamily = `${fontName}, sans-serif !important`;
-//     });
-// }
+addFontChangeListener('comic-neue', "'Comic Neue', cursive");
+addFontChangeListener('lobster', "'Lobster', cursive");
+addFontChangeListener('kode-mono', "'Kode Mono', monospace");
+addFontChangeListener('playwrite-fr-moderne', "'Playwrite FR Moderne', cursive");
+addFontChangeListener('source-code-pro', "'Source Code Pro', monospace");
+addFontChangeListener('caveat', "'Caveat', cursive");
+addFontChangeListener('danfo', "'Danfo', serif");

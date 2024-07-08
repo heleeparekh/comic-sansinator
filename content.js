@@ -1,12 +1,10 @@
-console.log("Content script loaded and running.");
-
 function injectFontLink(fontName, fontUrl) {
     const link = document.createElement('link');
     link.href = fontUrl;
     link.rel = 'stylesheet';
     link.type = 'text/css';
     document.head.appendChild(link);
-    console.log(`Font link for ${fontName} injected: ${link.href}`);
+    //console.log(`Font link for ${fontName} injected: ${link.href}`);
 }
 injectFontLink('Comic Neue','https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap')
 injectFontLink('Lobster', 'https://fonts.googleapis.com/css2?family=Lobster&display=swap');
@@ -28,7 +26,6 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     };
 
     function setFontFamily(fontFamily) {
-        // document.body.style.fontFamily = fontFamily;
         document.querySelectorAll('*').forEach(node => {
             node.style.fontFamily = fontFamily;
         });
