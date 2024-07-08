@@ -1,54 +1,28 @@
-document.getElementById('comic-sans').addEventListener('click', () => {
-    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-        if (tabs.length > 0) {
-            chrome.scripting.executeScript({
-                target: {tabId: tabs[0].id},
-                function: function() {
-                    document.body.style.fontFamily = "'Comic Sans MS'";
-                }
-            });
-        }
+function addFontChangeListener(buttonId, fontFamily) {
+    document.getElementById(buttonId).addEventListener('click', () => {
+        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+            if (tabs.length > 0) {
+                chrome.scripting.executeScript({
+                    target: {tabId: tabs[0].id},
+                    func: changeFontFamily,
+                    args: [fontFamily]
+                });
+            }
+        });
     });
-});
+}
 
-document.getElementById('papyrus').addEventListener('click', () => {
-    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-        if (tabs.length > 0) {
-            chrome.scripting.executeScript({
-                target: {tabId: tabs[0].id},
-                function: function() {
-                    document.body.style.fontFamily = "'Papyrus', fantasy";
-                }
-            });
-        }
-    });
-});
+function changeFontFamily(fontFamily) {
+    document.body.style.fontFamily = fontFamily;
+}
 
-document.getElementById('lobster').addEventListener('click', () => {
-    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-        if (tabs.length > 0) {
-            chrome.scripting.executeScript({
-                target: {tabId: tabs[0].id},
-                function: function() {
-                    document.body.style.fontFamily = "'Lobster', cursive";
-                }
-            });
-        }
-    });
-});
-
-document.getElementById('kode-mono-123').addEventListener('click', () => {
-    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-        if (tabs.length > 0) {
-            chrome.scripting.executeScript({
-                target: {tabId: tabs[0].id},
-                function: function() {
-                    document.body.style.fontFamily = "'Kode Mono', monospace";
-                }
-            });
-        }
-    });
-});
+addFontChangeListener('comic-neue', "'Comic Neue', cursive");
+addFontChangeListener('lobster', "'Lobster', cursive");
+addFontChangeListener('kode-mono', "'Kode Mono', monospace");
+addFontChangeListener('playwrite-fr-moderne', "'Playwrite FR Moderne', cursive");
+addFontChangeListener('source-code-pro', "'Source Code Pro', monospace");
+addFontChangeListener('caveat', "'Caveat', cursive");
+addFontChangeListener('danfo', "'Danfo', serif");
 
 document.getElementById('restore').addEventListener('click', () => {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
@@ -78,14 +52,24 @@ document.querySelectorAll('button').forEach(button => {
     });
 });
 
+// function changeFont(fontName) {
+//     const elements = document.querySelectorAll('body, body *');
+//     elements.forEach(el => {
+//         if (window.getComputedStyle(el).display === 'inline') {
+//             el.style.fontFamily = `${fontName}, sans-serif !important`;
+//         }
+//     });
+// }
+
 function changeFont(fontName) {
     const elements = document.querySelectorAll('body, body *');
     elements.forEach(el => {
         if (window.getComputedStyle(el).display === 'inline') {
-            el.style.fontFamily = `${fontName}, sans-serif !important`;
+            el.style.setProperty('font-family', `${fontName}, sans-serif`, 'important');
         }
     });
 }
+
 
 
 // function setFontFamily(fontName) {
