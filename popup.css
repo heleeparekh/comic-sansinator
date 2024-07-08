@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: #f0f0f0; /* Light grey background */
+    color: #333333; /* Dark grey text */
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 150px;
+    padding: 8px;
+    margin-top: 5px;
+    background-color: #4A90E2; /* Sophisticated blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    white-space: nowrap;
+    gap: 5px;
+}
+
+button:hover {
+    background-color: #357ABD; /* Darker blue on hover */
+}
+
+button.active {
+    background-color: #34A853; /* Google's Material Design green for active state */
+}
+
+i {
+    font-size: 15px;
+    margin-right: 5px; /* Space between icon and text */
+}
+
+.kode-mono-123 {
+    font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
